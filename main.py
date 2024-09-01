@@ -13,5 +13,17 @@ def main():
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    while True:
+        # Fills the screen with black
+        screen.fill("black")
+        # Refreshess the screen every loop
+        pygame.display.flip()
+
+        # Watches for the close button to be pressed
+        # Closes the app when it is detected
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+
 if __name__ == "__main__":
     main()
