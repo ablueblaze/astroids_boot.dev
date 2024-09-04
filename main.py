@@ -1,8 +1,5 @@
-# this allows us to use code from
-# the open-source pygame library
-# throughout this file
-
 import pygame
+import player
 from constants import *
 
 def main():
@@ -15,6 +12,12 @@ def main():
     game_clock = pygame.time.Clock()
     dt = 0
 
+    start_x = SCREEN_WIDTH / 2
+    start_y = SCREEN_HEIGHT / 2
+
+    # This causes a type error due to passing to many args
+    # pc = player.Player(start_x, start_y, PLAYER_RADIUS)
+    pc = player.Player(start_x, start_y)
     # Game loop
     while True:
         # Watches for the close button to be pressed
@@ -23,13 +26,19 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+
         # Fills the screen with black
         screen.fill("black")
+
+        # Draw the character on the scree
+        pc.draw(screen)
+
         # Refreshess the screen every loop
         pygame.display.flip()
 
         # passing the FPS to the clock object
         dt = game_clock.tick(60) / 1000
+
 
 
 if __name__ == "__main__":
