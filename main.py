@@ -30,6 +30,9 @@ def main():
         # Fills the screen with black
         screen.fill("black")
 
+        # Key controls
+        pc.update(dt)
+
         # Draw the character on the scree
         pc.draw(screen)
 
