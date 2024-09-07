@@ -8,7 +8,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     game_clock = pygame.time.Clock()
 
-    print("Starting asteroids!")
+#    print("Starting asteroids!")
 
     # Groups for cleaner code base
     updatable = pygame.sprite.Group()
@@ -38,7 +38,7 @@ def main():
 
         # Draw the character on the scree
         for obj in drawable:
-            obj.update(screen)
+            obj.draw(screen)
 
         # Refreshess the screen every loop
         pygame.display.flip()
