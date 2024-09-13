@@ -35,7 +35,8 @@ def main():
         for asteroid in asteroids:
             # check for collisions
             if pc.collision_check(asteroid):
-                print("hit")
+                print("Game Over")
+                raise SystemExit
 
         # Fills the screen with black
         screen.fill("black")
