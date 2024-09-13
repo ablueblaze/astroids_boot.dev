@@ -32,6 +32,11 @@ def main():
         for obj in updatable:
             obj.update(dt)
 
+        for asteroid in asteroids:
+            # check for collisions
+            if pc.collision_check(asteroid):
+                print("hit")
+
         # Fills the screen with black
         screen.fill("black")
 
