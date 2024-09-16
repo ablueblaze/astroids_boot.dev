@@ -25,11 +25,3 @@ class CircleShape(pygame.sprite.Sprite):
 
     def collision_check(self, circle_object):
         return self.position.distance_to(circle_object.position) <= self.radius + circle_object.radius
-
-# Each CircleShape's position property is a pygame.Vector2.
-#     Use its distance_to method to calculate the distance between the two shapes.
-# After the update step in your game loop,
-#   iterate over all of the objects in your asteroids group.
-#     Check if any of them collide with the player.
-#         If a collision is detected, the program should print Game over!
-#     and immediately exit the program.
