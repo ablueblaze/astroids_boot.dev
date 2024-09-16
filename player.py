@@ -7,7 +7,6 @@ import pygame
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
-        # self.radius = constants.PLAYER_RADIUS
         self.rotation = 0
         self.timer = pygame.time.get_ticks()
         self.cool_time = 0
@@ -15,7 +14,6 @@ class Player(CircleShape):
     def draw(self, screen):
         pygame.draw.polygon(screen, 'white', self.triangle(), 2)
 
-    # in the player class
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         right = pygame.Vector2(0, 1).rotate(
@@ -38,11 +36,7 @@ class Player(CircleShape):
             self.move(-dt)
         if keys[pygame.K_SPACE]:
             self.timer = pygame.time.get_ticks()
-            if self.timer > self.cool_time:
-                self.shoot()
-                self.cool_time = pygame.time.get_ticks() + PLAYER_SHOT_COOLDOWN
-            else:
-                print('missfire, current time: ', self.timer)
+            self.shoot()
 
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
@@ -52,6 +46,9 @@ class Player(CircleShape):
         self.position += forward * PLAYER_SPEED * dt
 
     def shoot(self):
-        x, y = self.position
-        bullet = Shot(x, y, SHOT_RADIUS)
-        bullet.rotation = self.rotation
+        if self.timer > self.cool_time:
+            self.cool_time = pygame.time.get_ticks() + PLAYER_SHOT_COOLDOWN
+            x, y = self.position
+            bullet = Shot(x, y, SHOT_RADIUS)
+            bullet.rotation = self.rotation
+            return
