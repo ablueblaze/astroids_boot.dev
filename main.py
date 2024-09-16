@@ -40,6 +40,10 @@ def main():
             if pc.collision_check(asteroid):
                 print("Game Over")
                 raise SystemExit
+            for shot in shots:
+                if asteroid.collision_check(shot):
+                    asteroid.split()
+                    shot.kill()
 
         for shot in shots:
             shot.move(dt)
