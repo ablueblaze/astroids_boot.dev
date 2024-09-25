@@ -8,8 +8,6 @@ class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
-        # my original method for handling cool down.
-        # self.timer = pygame.time.get_ticks()
         self.cool_time = 0
 
     def draw(self, screen):
@@ -36,7 +34,6 @@ class Player(CircleShape):
         if keys[pygame.K_s]:
             self.move(-dt)
         if keys[pygame.K_SPACE]:
-            # self.timer = pygame.time.get_ticks()
             self.cool_time -= dt
             self.shoot()
 
@@ -48,12 +45,6 @@ class Player(CircleShape):
         self.position += forward * PLAYER_SPEED * dt
 
     def shoot(self):
-        # if self.timer > self.cool_time:
-        # x, y = self.position
-        # bullet = Shot(x, y, SHOT_RADIUS)
-        # bullet.rotation = self.rotation
-        # return
-        # self.cool_time = pygame.time.get_ticks() + PLAYER_SHOT_COOLDOWN
         if self.cool_time > 0:
             return
         self.cool_time = PLAYER_SHOT_COOLDOWN

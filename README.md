@@ -1,8 +1,9 @@
 # astroids_boot.dev
+>A game that originated during a course for Boot.dev(Awsome course BTWs!)
 
-Creating the game of astroids during my course work for boot.dev
+Currently in active development. For notes please check the "development_notes" directory.
 
-Ways to expand the game:
+Here are some of the ways I plan to expand the game(Not in order):
 - Add a scoring system
 - Implement multiple lives and respawning
 - Add an explosion effect for the asteroids
@@ -15,3 +16,10 @@ Ways to expand the game:
 - Add a shield power-up
 - Add a speed power-up
 - Add bombs that can be dropped
+- Add assets to the game as apposing aliens
+- Add a local multiplayer function
+- Add a online multiplayer function
+- Add a load screen
+- Add a custom settings menu
+- Add sound effects
+- Add music
