@@ -24,3 +24,9 @@
   - Add a custom settings menu
   - Add a background image
   - Add bombs that can be dropped
+
+## Possible features to add:
+- Transition between 2d and 3d
+- Warp gates
+- particle effects
+
